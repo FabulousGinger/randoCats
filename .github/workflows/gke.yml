@@ -51,7 +51,7 @@ jobs:
     # Setup .env file
     - name: Setup .env file
       run: |
-        echo ${{ secrets.GIPHY_API }} > cmd/.env
+        echo GIPHY_API_KEY=${{ secrets.GIPHY_API }} > cmd/.env
 
     # Build the Docker image
     - name: Build
