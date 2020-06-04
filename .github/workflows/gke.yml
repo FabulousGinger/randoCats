@@ -52,7 +52,7 @@ jobs:
     - name: Build
       run: |
         docker build \
-          --tag "$REGISTRY_HOSTNAME/$PROJECT_ID/$IMAGE:$GITHUB_SHA" \
+          --tag "$REGISTRY_HOSTNAME/$GKE_PROJECT/$IMAGE:$GITHUB_SHA" \
           .
 
     # Push the Docker image to Google Container Registry
