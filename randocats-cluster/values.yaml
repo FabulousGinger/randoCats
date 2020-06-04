@@ -3,9 +3,6 @@ environment: catbox
 service:
   type: NodePort
 
-ingress:
-  ip: 34.75.53.226
-
 randocats:
   image:
     repository: us.gcr.io/randocats/randocats
