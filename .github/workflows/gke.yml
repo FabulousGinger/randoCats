@@ -68,7 +68,12 @@ jobs:
     # Deploy the Docker image to the GKE cluster
     - name: Deploy
       run: |
-        gcloud container clusters get-credentials $GKE_CLUSTER --zone $GKE_ZONE --project $GKE_PROJECT
-        helm upgrade $GKE_PROJECT $GKE_PROJECT-cluster/
+        gcloud container clusters get-credentials $GKE_CLUSTER \
+          --zone $GKE_ZONE \
+          --project $GKE_PROJECT
+        helm upgrade $GKE_PROJECT $GKE_PROJECT-cluster/ \
+          --force \
+          --wait \
+          --timeout 60
         kubectl rollout status deployment/$DEPLOYMENT_NAME
         kubectl get services -o wide
