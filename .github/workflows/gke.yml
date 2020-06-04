@@ -48,6 +48,11 @@ jobs:
         # via gcloud command-line tool.
         gcloud auth configure-docker
 
+    # Setup .env file
+    - name: Setup .env file
+      run: |
+        echo ${{ secrets.GIPHY_API }} > cmd/.env
+
     # Build the Docker image
     - name: Build
       run: |
