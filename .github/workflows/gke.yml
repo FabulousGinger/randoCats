@@ -73,7 +73,6 @@ jobs:
           --project $GKE_PROJECT
         helm upgrade $GKE_PROJECT $GKE_PROJECT-cluster/ \
           --force \
-          --wait \
-          --timeout 30
+          --wait
         kubectl rollout status deployment/$DEPLOYMENT_NAME
         kubectl get services -o wide
